@@ -37,7 +37,10 @@ $chat_ed = $update->edited_message->chat->id;
 $chat_id2 = $update->callback_query->message->chat->id;
 $message_id = $update->callback_query->message->message_id;
 $data = $update->callback_query->data;
-      
+
+$chat_id2 = $update->callback_query->message->chat->id;
+
+$message_id2 = $update->callback_query->message->message_id;
 /*
 if($text == "/start"){
 $start = array(
@@ -56,6 +59,12 @@ bot('sendMessage',[
 ]);
 }
 */
+
+$u = explode("\n",file_get_contents("data/memb.txt"));
+$c = count($u)-1;
+if ($update && !in_array($chat_id, $u)) {
+    file_put_contents("data/memb.txt", $chat_id."\n",FILE_APPEND);
+  }
 
 
 $chat_id2 = $update->callback_query->message->chat->id;
