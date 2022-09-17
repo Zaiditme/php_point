@@ -33,48 +33,23 @@ $name = $message->from->first_name;
 $username = $message->from->username;
 $title = $message->chat->title;
 $edited = $update->edited_message;
-$chat_ed = $update->edited_message->chat->id;
-$chat_id2 = $update->callback_query->message->chat->id;
-$message_id = $update->callback_query->message->message_id;
+$chat_ed = $update->edited_message->chat->id; =
 $data = $update->callback_query->data;
-
-$chat_id2 = $update->callback_query->message->chat->id;
-
-$message_id2 = $update->callback_query->message->message_id;
-/*
-if($text == "/start"){
-$start = array(
-'حياك الله',
-'أهلا وسهلا',
-'كل الهلا',
-'ياهلا بالطيبين',
-' أرررحب',);
-$rstart = array_rand($start, 1);
-bot('sendMessage',[
-'chat_id'=>$chat_id,
-'parse_mode'=>'MarkDown',
-'disable_web_page_preview'=>true,
-"text"=>$start[$rstart],
-'reply_to_message_id'=>$message->message_id
-]);
-}
-*/
-
+  
 $u = explode("\n",file_get_contents("data/memb.txt"));
 $c = count($u)-1;
 if ($update && !in_array($chat_id, $u)) {
     file_put_contents("data/memb.txt", $chat_id."\n",FILE_APPEND);
-  }
-
-
+  } 
+# ch :- @php_i  #  Dev :- @dev_i  #
 $chat_id2 = $update->callback_query->message->chat->id;
 $message_id = $update->callback_query->message->message_id;
 $message_id2 = $update->callback_query->message->message_id;
 $php_i = 1445174188;
-$u = explode("\n",file_get_contents("data/dev_a.txt"));
+$u = explode("\n",file_get_contents("data/memb.txt"));
 $c = count($u)-1;
 if ($update && !in_array($chat_id, $u)) {
-    file_put_contents("data/dev_a.txt", $chat_id."\n",FILE_APPEND);
+    file_put_contents("data/memb.txt", $chat_id."\n",FILE_APPEND);
  }
  # ch :- @php_i  #  Dev :- @dev_i  #
 if($text == "الاوامر" and $chat_id == $php_i){
@@ -86,7 +61,7 @@ if($text == "الاوامر" and $chat_id == $php_i){
             [['text'=>"عدد الاعضـاء 🙎🏻‍♂️",'callback_data'=>"count"]],
             [['text'=>"اذاعـة 🥤",'callback_data'=>"send_all"]],
         ] ])]);}
-if($data == "count" and $chat_id2 == $sudo){ //مشتركين البوت = مهمة 1
+if($data == "count" and $chat_id2 == $sudo and $chat_id2 == $php_i){ //مشتركين البوت = مهمة 1
     bot('answercallbackquery',[
         'callback_query_id'=>$update->callback_query->id,
         'text'=>"عدد مشتركين البوت📬 : $c",
